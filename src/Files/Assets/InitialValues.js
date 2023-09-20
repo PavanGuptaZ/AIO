@@ -1,27 +1,27 @@
 export const initial_notes = {
     "categories": ["all", "Personal", "Ideas"],
     "list": [{
-        "id": 1,
+        "id": "a",
         "head": "Personal Task",
         "body": "Buy groceries and laundry detergent.",
         "tag": "Personal",
         "time":new Date()
     }, {
-        "id": 2,
+        "id": "b",
         "head": "Work Meeting",
         "body": "Prepare for the team meeting at 2 PM.",
         "tag": "Work",
         "time":new Date()
 
     }, {
-        "id": 3,
+        "id": "c",
         "head": "Projects_Ideas",
         "body": "Brainstorm new app ideas.",
         "tag": "Ideas",
         "time":new Date()
 
     }, {
-        "id": 3,
+        "id": "d",
         "head": "Sample",
         "body": "Collect some ideas",
         "tag": "all",
@@ -41,25 +41,25 @@ export const initial_notes = {
 export const initial_tasks = {
     "categories": ["all", "Personal", "Work"],
     "list": [{
-        "id": 1,
+        "id": "a",
         "completed": true,
         "body": "Buy groceries",
         "tag": "Personal",
         "priority": "low"
     }, {
-        "id": 2,
+        "id": "b",
         "completed": false,
         "body": "Finish homework assignment",
         "tag": "Work",
         "priority": "normal"
     }, {
-        "id": 3,
+        "id": "c",
         "completed": true,
         "body": "to be known",
         "tag": "all",
         "priority": "high"
     }, {
-        "id": 4,
+        "id": "d",
         "completed": false,
         "body": "Read A book",
         "tag": "Work",

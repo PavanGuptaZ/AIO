@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 export const NameDetails = () => {
     const [toggel, setToggel] = useState(true)
     const [name, setname] = useState(() => {
-        let value = localStorage.getItem("name") || "Right Click here";
-        if (value !== "Right Click here") {
+        let value = localStorage.getItem("name") || "name here";
+        if (value !== "name here") {
             setToggel(false)
         }
         return value

@@ -1,5 +1,5 @@
 import './App.css';
-import { Notes, OverView, Support, Tasks, PageNotFound } from './Files/Pages';
+import { Notes, OverView, Support, Tasks, PageNotFound, NoteFullView } from './Files/Pages';
 import { Header, NavigatorNav, NoteViewer, TaskViewer, TagViewer } from './Files/Components';
 import { Routes, Route } from 'react-router-dom';
 import { useContext } from 'react';
@@ -27,6 +27,7 @@ function App() {
               <Route path="*" element={<PageNotFound />} />
             </Route>
             <Route path="support" element={<Support />} />
+            <Route path="FullViewNotes/:idNote" element={<NoteFullView />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
