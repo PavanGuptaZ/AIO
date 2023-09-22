@@ -13,9 +13,9 @@ export const NoteFullView = () => {
     let note = notes.list.find((ele) => ele.id === idNote);
     let check = note !== undefined;
     // console.log(idNote,note);
-    useEffect(()=>{
-        if (check === false) {
-            navigator("/notes/all")
+    useEffect(() => {
+        if (!check) {
+            navigator("/notes/all");
         }
     })
     let newDate = new Date().toISOString();
@@ -113,7 +113,7 @@ export const NoteFullView = () => {
                 </div>
                 <label className='label01' htmlFor="notebody">Note Body</label>
                 <textarea className='text03' id='notebody'
-                    type="text" value={text.body} 
+                    type="text" value={text.body}
                     onChange={(e) => handleChangeBody(e)}
                     style={{ resize: "vertical", minHeight: "200px" }} />
                 {checkLength.body && <label htmlFor="notebody" style={{ color: "orangered", textAlign: "center" }}>minimum characters Required</label>}

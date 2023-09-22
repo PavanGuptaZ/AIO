@@ -18,12 +18,8 @@ function App() {
             <Route path="/" element={<OverView />} />
             <Route path="notes" element={<Notes />} >
               <Route index element={<NotesRoute value={"all"} />} />
-              {notes.categories.map((ele, idx) => {
-                if (ele !== "all") {
-                  return (<Route key={idx} path={ele} element={<NotesRoute value={ele} />} />)
-                }
-                return null
-              })}
+              {notes.categories.map((ele, idx) => (<Route key={idx} path={ele} element={<NotesRoute value={ele} />} />)
+              )}
               <Route path="*" element={<PageNotFound />} />
             </Route>
             <Route path="tasks" element={<Tasks />}>

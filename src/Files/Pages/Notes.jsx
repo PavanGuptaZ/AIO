@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { editorOpener, notesContext, searchContext } from '../Hooks/useContextProvider';
 import { useKey } from '../Hooks/useKey';
@@ -12,10 +12,10 @@ export const Notes = ({ value }) => {
   const navigator = useNavigate();
   const location = useLocation();
   console.log(location);
-  // useEffect(() => {
-  //   const locationCheck = location.pathname === "/notes" || location.pathname === "/notes/";
-  //   locationCheck && navigator("/notes/all");
-  // })
+  useEffect(() => {
+    const locationCheck = location.pathname === "/notes" || location.pathname === "/notes/";
+    locationCheck && navigator("/notes/all");
+  })
 
   useKey("Escape", () => {
     dispatchNotes({
