@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { notesContext } from '../Hooks/useContextProvider';
 import { v4 as uuid } from 'uuid';
@@ -13,11 +13,7 @@ export const NoteFullView = () => {
     let note = notes.list.find((ele) => ele.id === idNote);
     let check = note !== undefined;
     // console.log(idNote,note);
-    useEffect(()=>{
-        if (check === false) {
-            navigator("/notes/all")
-        }
-    })
+
     let newDate = new Date().toISOString();
 
     const [text, setText] = useState({
