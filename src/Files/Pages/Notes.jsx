@@ -11,7 +11,6 @@ export const Notes = ({ value }) => {
   const { setSearchValue } = useContext(searchContext);
   const navigator = useNavigate();
   const location = useLocation();
-  console.log(location);
   useEffect(() => {
     const locationCheck = location.pathname === "/notes" || location.pathname === "/notes/";
     locationCheck && navigator("/notes/all");

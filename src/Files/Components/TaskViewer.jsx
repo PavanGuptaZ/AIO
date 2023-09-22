@@ -27,7 +27,7 @@ export const TaskViewer = () => {
         setText(element => ({ ...element, "tag": e.target.value }))
     }
     const handlePriority = (e) => {
-        console.log(e.target.getAttribute("data-value"));
+        // console.log(e.target.getAttribute("data-value"));
         let priorityValue = e.target.getAttribute("data-value")
         setText(element => ({ ...element, "priority": priorityValue }))
         setPriorityFlag(false)

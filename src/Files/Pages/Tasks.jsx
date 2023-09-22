@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { editorOpener, searchContext, tasksContext } from '../Hooks/useContextProvider';
-import { TaskBlock } from '../Components';
 import { useKey } from '../Hooks/useKey';
 import { IoIosAddCircle } from 'react-icons/io';
 import { HiFlag } from 'react-icons/hi';
 
 export const Tasks = ({ value }) => {
   let { tasks, dispatchTasks } = useContext(tasksContext);
-  let { searchValue, setSearchValue } = useContext(searchContext);
+  let { setSearchValue } = useContext(searchContext);
   const { setEditorViewer } = useContext(editorOpener);
   const navigator = useNavigate();
   const location = useLocation();
@@ -25,7 +24,14 @@ export const Tasks = ({ value }) => {
     setEditorViewer(pre => ({ ...pre, tasks: false, tag: false, tagtype: { for: null, value: null } }))
     setSearchValue("");
     navigator("/tasks/all");
+    setSortKey((pre)=>{
+      const updatedSortKey = { ...pre };
+      for (const key in pre) {
+          updatedSortKey[key] = false;
+      }
+      return updatedSortKey;
 
+    })
   })
   const openEditor = () => {
     setEditorViewer(noteViewer => ({ ...noteViewer, tasks: true }))
@@ -84,12 +90,7 @@ export const Tasks = ({ value }) => {
           }}>Add Tasks</button>
         </div>
       </div>
-      <div style={{ margin: "20px 0", display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center" }}>
-        {tasks.list && tasks?.list.filter((ele) => ele.priority.toLowerCase().includes(sortFliter.toLocaleLowerCase())).filter((ele) => (value === "all" ? true : ele.tag === value)).filter((ele) => ele.body.toLowerCase().includes(searchValue.toLowerCase())).map((element) => (
-          <TaskBlock key={element.id} element={element} />
-        ))}
-        <Outlet />
-      </div>
+        <Outlet  context={{sortFliter}}/>
       {/* {value} */}
     </>
   )

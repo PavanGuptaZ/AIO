@@ -1,6 +1,6 @@
 import './App.css';
 import { Notes, OverView, Support, Tasks, PageNotFound, NoteFullView } from './Files/Pages';
-import { Header, NavigatorNav, NoteViewer, TaskViewer, TagViewer, NotesRoute } from './Files/Components';
+import { Header, NavigatorNav, NoteViewer, TaskViewer, TagViewer, NotesRoute, TasksRoute } from './Files/Components';
 import { Routes, Route } from 'react-router-dom';
 import { useContext } from 'react';
 import { editorOpener, notesContext, tasksContext } from './Files/Hooks/useContextProvider';
@@ -22,9 +22,9 @@ function App() {
               )}
               <Route path="*" element={<PageNotFound />} />
             </Route>
-            <Route path="tasks" element={<Tasks />}>
-              <Route index element={<Tasks value={"all"} />} />
-              {tasks.categories.map((ele, idx) => (<Route key={idx} path={ele} element={<Tasks value={ele} />} />))}
+            <Route path="tasks" element={<Tasks/>}>
+              <Route index element={<TasksRoute value={"all"} />} />
+              {tasks.categories.map((ele, idx) => (<Route key={idx} path={ele} element={<TasksRoute value={ele} />} />))}
               <Route path="*" element={<PageNotFound />} />
             </Route>
             <Route path="support" element={<Support />} />
