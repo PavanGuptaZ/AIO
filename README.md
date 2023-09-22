@@ -17,5 +17,3 @@ Our "Support" page is Under Construction! Here, you'll find valuable information
 Discover the power of an all-in-one platform designed to simplify your life. AIO is your one-stop destination for staying organized and efficient. Start exploring now!
 
 Note: Please keep in mind that this is not the final version of the website, and we are continuously working to improve your experience.
-
-NETLIFY LINK - https://aio-all-in-one.netlify.app/
