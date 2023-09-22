@@ -8,3 +8,4 @@ export { TagViewer } from './TagViewer.jsx';
 export { DigitalClock } from './DigitalClock.jsx';
 export { NameDetails } from './NameDetails.jsx';
 export { HighsTasks } from './HighsTasks.jsx';
+export { NotesRoute } from './NotesRoute.jsx';

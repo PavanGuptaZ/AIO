@@ -1,22 +1,21 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { editorOpener, notesContext, searchContext } from '../Hooks/useContextProvider';
-import { NotesBlock } from '../Components';
 import { useKey } from '../Hooks/useKey';
 import { IoIosAddCircle } from 'react-icons/io';
 
 
 export const Notes = ({ value }) => {
   let { notes, dispatchNotes } = useContext(notesContext);
-  let { searchValue } = useContext(searchContext);
   const { setEditorViewer } = useContext(editorOpener);
   const { setSearchValue } = useContext(searchContext);
   const navigator = useNavigate();
   const location = useLocation();
-  useEffect(() => {
-    const locationCheck = location.pathname === "/notes" || location.pathname === "/notes/";
-    locationCheck && navigator("/notes/all");
-  })
+  console.log(location);
+  // useEffect(() => {
+  //   const locationCheck = location.pathname === "/notes" || location.pathname === "/notes/";
+  //   locationCheck && navigator("/notes/all");
+  // })
 
   useKey("Escape", () => {
     dispatchNotes({
@@ -65,12 +64,8 @@ export const Notes = ({ value }) => {
           }}>Add List</button>
         </div>
       </div>
-      <div style={{ margin: "20px 0",display:"flex",flexWrap:"wrap",gap:"20px",justifyContent:"center" }}>
-        {notes.list && notes?.list.filter((ele)=> (value === "all" ? true : ele.tag === value)).filter((ele)=>ele.body.toLowerCase().includes(searchValue.toLowerCase())).map((element, idx) => (
-          <NotesBlock key={idx} element={element} />
-        ))}
+
         <Outlet />
-      </div>
         {/* {value} */}
     </>
   )
