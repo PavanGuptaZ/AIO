@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { notesContext } from '../Hooks/useContextProvider';
 import { v4 as uuid } from 'uuid';
